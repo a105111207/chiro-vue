@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # chiro-vue
 
 This template should help get you started developing with Vue 3 in Vite.
@@ -27,3 +28,6 @@ npm run dev
 ```sh
 npm run build
 ```
+=======
+# chiro-vue
+>>>>>>> 8d791ee75349f5d7a43146c7cce98663517e9771
