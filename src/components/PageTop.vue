@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
+const prop = defineProps({ pageId: String, title: String });
 </script>
 
 <template>
@@ -39,6 +40,11 @@ import { RouterLink, RouterView } from "vue-router";
     </div>
   </nav>
 
-  <RouterView />
+  <header class="masthead" :id="prop.pageId">
+    <div class="container">
+      <div class="masthead-subheading">中华脊椎健康研究中心</div>
+      <div class="masthead-heading text-uppercase">{{ prop.title }}</div>
+    </div>
+  </header>
 </template>
 

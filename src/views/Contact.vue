@@ -1,6 +1,8 @@
 <script setup>
-console.log("Contact.vue loaded");
+import PageTop from "../components/PageTop.vue";
 </script>
 
-<template></template>
+<template>
+  <PageTop :pageId="'contact-page'" :title="'联系方式'" />
+</template>
 

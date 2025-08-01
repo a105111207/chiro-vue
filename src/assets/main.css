@@ -12810,29 +12810,29 @@ header.masthead {
 }
 
 header.masthead#index-page {
-  background-image: url("../img/p4.jpg");
+  background-image: url("./images/p4.jpg");
 }
 
 header.masthead#tecinfo-page {
-  background-image: url("../img/course_pic/S__20840458.jpg");
+  background-image: url("./images/course_pic/S__20840458.jpg");
   padding-top: calc(8rem + 57px);
   padding-bottom: 8rem;
 }
 
 header.masthead#slide-page {
-  background-image: url("../img/course_pic/S__20799578.jpg");
+  background-image: url("./images/course_pic/S__20799578.jpg");
   padding-top: calc(8rem + 57px);
   padding-bottom: 8rem;
 }
 
 header.masthead#video-page {
-  background-image: url("../img/course_pic/S__20799580.jpg");
+  background-image: url("./images/course_pic/S__20799580.jpg");
   padding-top: calc(8rem + 57px);
   padding-bottom: 8rem;
 }
 
 header.masthead#contact-page {
-  background-image: url("../img/course_pic/S__20799541.jpg");
+  background-image: url("./images/course_pic/S__20799541.jpg");
   padding-top: calc(8rem + 57px);
   padding-bottom: 8rem;
 }
@@ -13203,7 +13203,7 @@ header.masthead .masthead-heading {
 
 section#contact {
   background-color: #212529;
-  background-image: url("../assets/img/map-image.png");
+  background-image: url("./images/map-image.png");
   background-repeat: no-repeat;
   background-position: center;
 }
