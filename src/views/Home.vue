@@ -1,6 +1,8 @@
 <script setup>
 import InfoColumn from "../components/InfoColumn.vue";
 import PageTop from "../components/PageTop.vue";
+import InfoImage from "../components/InfoImage.vue";
+import ClassTime from "../components/ClassTime.vue";
 
 const items = [
   {
@@ -27,4 +29,6 @@ const items = [
 <template>
   <PageTop :pageId="'index-page'" :title="'曹修悌 - 整脊培训'" />
   <InfoColumn :items="items" :infotitle="'资讯栏'" />
+  <InfoImage />
+  <ClassTime />
 </template>
