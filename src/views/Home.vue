@@ -3,6 +3,8 @@ import InfoColumn from "../components/InfoColumn.vue";
 import PageTop from "../components/PageTop.vue";
 import InfoImage from "../components/InfoImage.vue";
 import ClassTime from "../components/ClassTime.vue";
+import ShopInfo from "../components/ShopInfo.vue";
+import ClassPicture from "../components/ClassPicture.vue";
 
 const items = [
   {
@@ -31,4 +33,14 @@ const items = [
   <InfoColumn :items="items" :infotitle="'资讯栏'" />
   <InfoImage />
   <ClassTime />
+  <ShopInfo />
+  <Suspense>
+    <template #default>
+      <ClassPicture />
+    </template>
+
+    <template #fallback>
+      <div>Loading Pictures...</div>
+    </template>
+  </Suspense>
 </template>

@@ -1,6 +1,33 @@
 <script setup>
 import { ref, computed } from "vue";
 
+const items = ref([
+  {
+    color: "blue",
+    text: "台北-大安区",
+  },
+  {
+    color: "red",
+    text: "北京-东城区 (天安门东)",
+  },
+  {
+    color: "orange",
+    text: "上海-长宁区(中山公园-地铁5站达虹桥)",
+  },
+  {
+    color: "purple",
+    text: "广州-天河区",
+  },
+  {
+    color: "yellow",
+    text: "杭州市-西湖区",
+  },
+  {
+    color: "teal",
+    text: "成都-青羊区",
+  },
+]);
+
 const pages = [
   { month: 9, year: 2025 },
   { month: 12, year: 2025 },
@@ -88,6 +115,19 @@ const attributes = ref(attr);
     <div class="container">
       <div class="text-center">
         <h2 class="section-heading text-uppercase">课程时间</h2>
+
+        <div class="row text-center">
+          <div v-for="(item, i) in items" :key="i" class="col-md-4">
+            <span class="fa-stack fa-1g">
+              <i
+                class="fas fa-circle fa-stack-2x"
+                :style="{ color: item.color }"
+              ></i>
+            </span>
+            <p class="my-3">{{ item.text }}</p>
+          </div>
+        </div>
+
         <div class="row text-center">
           <div class="col-md-6" v-for="(page, i) in pages" :key="i">
             <br />
