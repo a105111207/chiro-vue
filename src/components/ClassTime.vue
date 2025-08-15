@@ -1,12 +1,3 @@
-<template>
-  <VCalendar
-    v-for="(page, i) in pages"
-    :key="i"
-    :initial-page="page"
-    :attributes="attributes"
-  />
-</template>
-
 <script setup>
 import { ref, computed } from "vue";
 
@@ -25,67 +16,96 @@ const Tdates = [
   { start: new Date(2026, 5, 5), end: new Date(2026, 5, 7) },
 ];
 
-const attr = [];
-for (let i = 0; i < Tdates.length; i++) {
+// Beijing class dates
+const Bdates = [
+  { start: new Date(2025, 8, 19), end: new Date(2025, 8, 21) },
+  { start: new Date(), end: new Date() },
+  { start: new Date(), end: new Date() },
+  { start: new Date(2026, 5, 26), end: new Date(2026, 5, 28) },
+];
+
+// Shanghai class dates
+const Sdates = [
+  { start: new Date(2025, 8, 12), end: new Date(2025, 8, 14) },
+  { start: new Date(2025, 11, 12), end: new Date(2025, 11, 14) },
+  { start: new Date(2026, 2, 13), end: new Date(2026, 2, 15) },
+  { start: new Date(2026, 5, 19), end: new Date(2026, 5, 21) },
+];
+
+// Guangzhou class dates
+const Gdates = [{ start: new Date(2025, 11, 19), end: new Date(2025, 11, 21) }];
+
+// Hangzhou class dates
+const Hdates = [];
+
+// Chengdu class dates
+const Cdates = [{ start: new Date(2026, 2, 20), end: new Date(2026, 2, 22) }];
+
+function createCalendar(i, dates, color, location) {
   const a = {
-    content: "blue",
     highlight: {
-      start: { fillMode: "outline" },
-      base: { fillMode: "light" },
-      end: { fillMode: "outline" },
+      color,
     },
-    dates: Tdates[i],
+    dates: dates[i],
     popover: {
-      label: "台北-大安区",
+      label: location,
     },
   };
 
-  attr.push(a);
+  return attr.push(a);
+}
+
+const attr = [];
+for (let i = 0; i < Tdates.length; i++) {
+  createCalendar(i, Tdates, "blue", "台北-大安区");
+}
+
+for (let i = 0; i < Bdates.length; i++) {
+  createCalendar(i, Bdates, "red", "北京-东城区 (天安门东)");
+}
+
+for (let i = 0; i < Sdates.length; i++) {
+  createCalendar(i, Sdates, "orange", "上海-长宁区(中山公园-地铁5站达虹桥)");
+}
+
+for (let i = 0; i < Gdates.length; i++) {
+  createCalendar(i, Gdates, "purple", "广州-天河区");
+}
+
+for (let i = 0; i < Hdates.length; i++) {
+  createCalendar(i, Hdates, "yellow", "杭州市-西湖区");
+}
+
+for (let i = 0; i < Cdates.length; i++) {
+  createCalendar(i, Cdates, "teal", "成都-青羊区");
 }
 
 const attributes = ref(attr);
-
-/*
-<tr>
-                        <td class="text-left">台北-大安区</td>
-                        <td> 9/5 ~ 9/7</td>
-                        <td>12/5 ~ 12/7</td>
-                        <td> 3/6 ~ 3/8</td>
-                        <td> 6/5 ~ 6/7</td>
-                    </tr>
-                    <tr>
-                        <td class="text-left">北京-东城区 (天安门东)</td>
-                        <td> 9/19 ~ 9/21</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td> 6/26 ~ 6/28</td>
-                    </tr>
-                    <tr>
-                        <td class="text-left">上海-长宁区(中山公园-地铁5站达虹桥)</td>
-                        <td> 9/12 ~ 9/14</td>
-                        <td> 12/12 ~ 12/14</td>
-                        <td> 3/13 ~ 3/15</td>
-                        <td> 6/19 ~ 6/21</td>
-                    </tr>
-                    <tr>
-                        <td class="text-left">广州-天河区</td>
-                        <td>&nbsp;</td>
-                        <td>12/19 ~ 12/21</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="text-left">杭州市-西湖区</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="text-left">成都-青羊区</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td> 3/20 ~ 3/22</td>
-                        <td>&nbsp;</td>
-*/
 </script>
+
+<template>
+  <section class="page-section bg-light" id="classtime">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-heading text-uppercase">课程时间</h2>
+        <div class="row text-center">
+          <div class="col-md-6" v-for="(page, i) in pages" :key="i">
+            <br />
+            <VCalendar
+              :initial-page="page"
+              :attributes="attributes"
+              :min-date="new Date(page.year, page.month - 1, 1)"
+              :max-date="
+                new Date(
+                  page.year,
+                  page.month - 1,
+                  new Date(page.year, page.month, 0).getDate()
+                )
+              "
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
