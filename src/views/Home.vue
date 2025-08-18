@@ -21,9 +21,9 @@ const items = [
   },
   {
     href: "#bookinfo",
-    title: "书籍资讯",
+    title: "书籍与跪姿床资讯",
     icon: "fas fa-book",
-    text: "书籍为美国整脊大学临床必修的专业教科书，亦为课程所使用之教科书―科学&艺术的脊椎矫正，由曹修悌编译，中国协和医科大学出版。（点击查看更多）",
+    text: "书籍为美国整脊大学临床必修的专业教科书，亦为课程所使用之教科书―科学&艺术的脊椎矫正，由曹修悌编译，中国协和医科大学出版。由曹修悌老师制作最专业矫正寰、枢 椎的跪姿床42斤纯铝打造。（点击查看更多）",
   },
 ];
 </script>
@@ -33,7 +33,18 @@ const items = [
   <InfoColumn :items="items" :infotitle="'资讯栏'" />
   <InfoImage />
   <ClassTime />
-  <ShopInfo />
+  <Suspense>
+    <template #default>
+      <ShopInfo />
+    </template>
+
+    <template #fallback>
+      <div>
+        <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+        <span class="sr-only">Loading...</span>
+      </div>
+    </template>
+  </Suspense>
   <Suspense>
     <template #default>
       <ClassPicture />

@@ -12719,7 +12719,7 @@ p {
 
 #mainNav {
   padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-bottom: 0;
   background-color: #212529;
 }
 

@@ -22,7 +22,12 @@ const links = [
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+  <!-- The .navbar-shrink is top tool mask while the user scrolls down the page it must display -->
+  <!-- There are some errors that will not automatically display when the user scrolls down the page -->
+  <nav
+    class="navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink"
+    id="mainNav"
+  >
     <div class="container">
       <RouterLink class="navbar-brand" to="/">中华脊椎健康研究中心</RouterLink>
 
