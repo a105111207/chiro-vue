@@ -22,7 +22,7 @@ const picList = await Promise.all(
           :key="i"
           class="col-lg-3 col-sm-6 mb-4"
         >
-          <!-- Picture 1-->
+          <!-- Picture -->
           <div class="course-pic-item">
             <a
               class="course-pic-link"
@@ -42,7 +42,7 @@ const picList = await Promise.all(
     </div>
   </section>
 
-  <!-- Picture Modals-->
+  <!-- Picture Modals -->
   <div
     v-for="(pic, i) in picList"
     :key="`modal-${i}`"
