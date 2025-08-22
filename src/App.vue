@@ -1,10 +1,12 @@
-<script setup>
-import Home from "./views/Home.vue";
-</script>
-
 <template>
-  <RouterView />
+  <div id="app">
+    <RouterView />
+  </div>
 </template>
 
-<style scoped>
-</style>
+<script setup>
+import Home from "./views/Home.vue";
+import { initializeNavigation } from "./style.js";
+
+initializeNavigation();
+</script>

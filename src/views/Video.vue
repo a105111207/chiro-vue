@@ -1,6 +1,7 @@
 <script setup>
 import PageTop from "../components/PageTop.vue";
 import InfoColumn from "../components/InfoColumn.vue";
+import ClassPreview from "@/components/ClassPreview.vue";
 
 const items = [
   {
@@ -27,4 +28,5 @@ const items = [
 <template>
   <PageTop :pageId="'video-page'" :title="'影片专区'" />
   <InfoColumn :items="items" :infotitle="'影片列表'" />
+  <ClassPreview />
 </template>
