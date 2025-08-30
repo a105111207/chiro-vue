@@ -383,16 +383,20 @@ const linkLists = [
           tabindex="0"
         >
           <table class=".nav-link ct-table">
-            <tr>
-              <th class="th-boder-right">片名</th>
-              <th>连结</th>
-            </tr>
-            <tr v-for="t in youkuVideo1">
-              <td class="text-left">{{ t.videoname }}</td>
-              <td>
-                <a :href="t.link">{{ t.link }}</a>
-              </td>
-            </tr>
+            <thead>
+              <tr>
+                <th class="th-boder-right">片名</th>
+                <th>连结</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="t in youkuVideo1">
+                <td class="text-left">{{ t.videoname }}</td>
+                <td>
+                  <a :href="t.link">{{ t.link }}</a>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
         <div
@@ -403,16 +407,20 @@ const linkLists = [
           tabindex="0"
         >
           <table class=".nav-link ct-table">
-            <tr>
-              <th class="th-boder-right">片名</th>
-              <th>连结</th>
-            </tr>
-            <tr v-for="t in youkuVideo2">
-              <td class="text-left">{{ t.videoname }}</td>
-              <td>
-                <a :href="t.link">{{ t.link }}</a>
-              </td>
-            </tr>
+            <thead>
+              <tr>
+                <th class="th-boder-right">片名</th>
+                <th>连结</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="t in youkuVideo2">
+                <td class="text-left">{{ t.videoname }}</td>
+                <td>
+                  <a :href="t.link">{{ t.link }}</a>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
         <div
@@ -423,16 +431,20 @@ const linkLists = [
           tabindex="0"
         >
           <table class=".nav-link ct-table">
-            <tr>
-              <th class="th-boder-right">片名</th>
-              <th>连结</th>
-            </tr>
-            <tr v-for="t in youtubeVideo1">
-              <td class="text-left">{{ t.videoname }}</td>
-              <td>
-                <a :href="t.link">{{ t.link }}</a>
-              </td>
-            </tr>
+            <thead>
+              <tr>
+                <th class="th-boder-right">片名</th>
+                <th>连结</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="t in youtubeVideo1">
+                <td class="text-left">{{ t.videoname }}</td>
+                <td>
+                  <a :href="t.link">{{ t.link }}</a>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
         <div
@@ -443,16 +455,20 @@ const linkLists = [
           tabindex="0"
         >
           <table class=".nav-link ct-table">
-            <tr>
-              <th class="th-boder-right">片名</th>
-              <th>连结</th>
-            </tr>
-            <tr v-for="t in youtubeVideo2">
-              <td class="text-left">{{ t.videoname }}</td>
-              <td>
-                <a :href="t.link">{{ t.link }}</a>
-              </td>
-            </tr>
+            <thead>
+              <tr>
+                <th class="th-boder-right">片名</th>
+                <th>连结</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="t in youtubeVideo2">
+                <td class="text-left">{{ t.videoname }}</td>
+                <td>
+                  <a :href="t.link">{{ t.link }}</a>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>
