@@ -1,6 +1,6 @@
 <script setup>
 const imgList = import.meta.glob(
-  "../assets/images/kneeling_bed/*.{jpg,png,jpeg,gif}"
+  "@/assets/images/kneeling_bed/*.{jpg,png,jpeg,gif}"
 );
 
 const picList = await Promise.all(
@@ -19,7 +19,7 @@ const picList = await Promise.all(
         <h3 class="section-subheading text-muted">
           书籍为美国整脊大学临床必修的专业教科书，亦为课程所使用之教科书―科学&amp;艺术的脊椎矫正，由曹修悌编译，中国协和医科大学出版。
         </h3>
-        <img class="img-fluid d-block mx-auto" src="../assets/images/p4.jpg" />
+        <img class="img-fluid d-block mx-auto" src="@/assets/images/p4.jpg" />
         <h3 class="text-muted bookcost-top-margin">序言</h3>
         <p class="text-muted">
           这是一本脊椎矫正的专业教科书，在很多国家，如美国、加拿大、英国、澳大利亚等都是以这本《科学&amp;艺术的脊椎矫正》课本作为最正统的教材，培养出很多专业医师，进而改善更多患者的健康。<br />

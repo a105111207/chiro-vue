@@ -7,7 +7,7 @@
       <div class="row">
         <img
           class="classinfo"
-          src="../assets/images/classinfo.jpg"
+          src="@/assets/images/classinfo.jpg"
           alt="class infomation image"
         />
       </div>

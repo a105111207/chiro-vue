@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '@/views/Home.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,22 +12,22 @@ const router = createRouter({
     {
       path: '/Contact',
       name: 'contact',
-      component: () => import('../views/Contact.vue'),
+      component: () => import('@/views/Contact.vue'),
     },
     {
       path: '/Slide',
       name: 'slide',
-      component: () => import('../views/Slide.vue'),
+      component: () => import('@/views/Slide.vue'),
     },
     {
       path: '/Video',
       name: 'video',
-      component: () => import('../views/Video.vue'),
+      component: () => import('@/views/Video.vue'),
     },
     {
       path: '/Tecinfo',
       name: 'tecinfo',
-      component: () => import('../views/Tecinfo.vue'),
+      component: () => import('@/views/Tecinfo.vue'),
     },
   ],
 })

@@ -1,6 +1,6 @@
 <script setup>
 const imgList = import.meta.glob(
-  "../assets/images/course_pic/*.{jpg,png,jpeg,gif}"
+  "@/assets/images/course_pic/*.{jpg,png,jpeg,gif}"
 );
 
 const picList = await Promise.all(

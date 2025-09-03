@@ -1,10 +1,10 @@
 <script setup>
-import InfoColumn from "../components/InfoColumn.vue";
-import PageTop from "../components/PageTop.vue";
-import InfoImage from "../components/InfoImage.vue";
-import ClassTime from "../components/ClassTime.vue";
-import ShopInfo from "../components/ShopInfo.vue";
-import ClassPicture from "../components/ClassPicture.vue";
+import InfoColumn from "@/components/InfoColumn.vue";
+import PageTop from "@/components/PageTop.vue";
+import InfoImage from "@/components/InfoImage.vue";
+import ClassTime from "@/components/ClassTime.vue";
+import ShopInfo from "@/components/ShopInfo.vue";
+import ClassPicture from "@/components/ClassPicture.vue";
 
 const items = [
   {

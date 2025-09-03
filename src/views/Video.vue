@@ -1,8 +1,8 @@
 <script setup>
-import PageTop from "../components/PageTop.vue";
-import InfoColumn from "../components/InfoColumn.vue";
-import ClassPreview from "../components/ClassPreview.vue";
-import CAVideo from "../components/CAVideo.vue";
+import PageTop from "@/components/PageTop.vue";
+import InfoColumn from "@/components/InfoColumn.vue";
+import ClassPreview from "@/components/ClassPreview.vue";
+import CAVideo from "@/components/CAVideo.vue";
 
 const items = [
   {

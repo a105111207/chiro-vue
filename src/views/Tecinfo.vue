@@ -1,5 +1,5 @@
 <script setup>
-import PageTop from "../components/PageTop.vue";
+import PageTop from "@/components/PageTop.vue";
 
 const timeline = [
   {
@@ -62,7 +62,7 @@ const timeline = [
   <section class="page-section bg-light">
     <div class="container">
       <div class="text-center tecinfo-gotop">
-        <img id="tecimg" src="../assets/images/tecpic.jpg" alt="" />
+        <img id="tecimg" src="@/assets/images/tecpic.jpg" alt="" />
       </div>
       <ul class="timeline">
         <li

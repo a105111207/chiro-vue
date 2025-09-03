@@ -1,5 +1,7 @@
 <script setup>
-const imgList = import.meta.glob("../assets/images/slide/*.png");
+const imgList = import.meta.glob("../assets/images/slide/*.png", {
+  eager: true, // Add eager loading for images
+});
 const slideImages = {};
 
 // Initialize the image path
@@ -11,16 +13,10 @@ for (let i = 1; i <= 12; i++) {
   }
 }
 
-// Get the actual URLs of all images
-const imageUrls = await Promise.all(
-  Object.entries(slideImages).map(async ([key, module]) => {
-    const result = await module();
-    return [key, result.default];
-  })
+// Convert modules directly to URLs
+const images = Object.fromEntries(
+  Object.entries(slideImages).map(([key, module]) => [key, module.default])
 );
-
-// Convert to object form
-const images = Object.fromEntries(imageUrls);
 
 const content = [
   {

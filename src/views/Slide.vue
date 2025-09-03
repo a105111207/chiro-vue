@@ -1,6 +1,6 @@
 <script setup>
-import PageTop from "../components/PageTop.vue";
-import SlidePicture from "../components/SlidePicture.vue";
+import PageTop from "@/components/PageTop.vue";
+import SlidePicture from "@/components/SlidePicture.vue";
 </script>
 
 <template>

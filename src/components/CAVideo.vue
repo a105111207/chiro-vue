@@ -1,12 +1,12 @@
 <script setup>
 import { ref, onMounted, nextTick } from "vue";
 
-// Dynamic video file imports
-const ctVideos = import.meta.glob("/src/assets/video/ct/**/*.mp4", {
-  eager: false, // Changed to lazy loading
+// Fix video path imports to use relative paths
+const ctVideos = import.meta.glob("@/assets/video/ct/**/*.mp4", {
+  eager: false,
 });
-const exVideos = import.meta.glob("/src/assets/video/ex/**/*.mp4", {
-  eager: false, // Changed to lazy loading
+const exVideos = import.meta.glob("@/assets/video/ex/**/*.mp4", {
+  eager: false,
 });
 
 // Current playing video
@@ -27,16 +27,18 @@ const videoCache = new Map();
 // Simplified volume control
 const volume = ref(1.0);
 
-// Play video with basic volume control
+// Play video with caching - fix path handling
 const playVideo = async (src) => {
   if (!videoPlayer.value) return;
 
   try {
+    const normalizedSrc = src.replace("@/assets", "../assets");
+
     // Check cache first
     if (!videoCache.has(src)) {
       const module = await (src.includes("/ct/")
-        ? ctVideos[src]()
-        : exVideos[src]());
+        ? ctVideos[normalizedSrc]()
+        : exVideos[normalizedSrc]());
       videoCache.set(src, module.default);
     }
 
@@ -46,7 +48,7 @@ const playVideo = async (src) => {
     videoPlayer.value.load();
     await videoPlayer.value.play();
   } catch (err) {
-    console.error("Failed to play video:", err);
+    console.error("Failed to play video:", err, normalizedSrc);
   }
 };
 
@@ -87,11 +89,22 @@ onMounted(async () => {
     playlistData1.value = list1;
     playlistData2.value = list2;
 
-    // Just set the source without playing
+    // Set and load initial video
     if (list1[0]?.videos[0]) {
-      const defaultVideo = list1[0].videos[0].src;
-      currentVideo.value = defaultVideo;
-      currentPlayingVideo.value = defaultVideo;
+      const defaultSrc = list1[0].videos[0].src;
+      const normalizedSrc = defaultSrc.replace("@/assets", "../assets");
+
+      const module = await ctVideos[normalizedSrc]();
+      videoCache.set(defaultSrc, module.default);
+
+      currentVideo.value = module.default;
+      currentPlayingVideo.value = defaultSrc;
+
+      nextTick(() => {
+        if (videoPlayer.value) {
+          videoPlayer.value.load();
+        }
+      });
     }
   } catch (err) {
     console.error("Failed to initialize videos:", err);
@@ -127,18 +140,6 @@ const switchPlaylist = (playlistId) => {
               <source :src="currentVideo" type="video/mp4" />
               Browser does not support video playback
             </video>
-            <!-- Simplified volume control -->
-            <div class="volume-control">
-              <label>音量: {{ Math.round(volume * 100) }}%</label>
-              <input
-                type="range"
-                min="0"
-                max="1"
-                step="0.1"
-                v-model="volume"
-                @input="updateVolume($event.target.value)"
-              />
-            </div>
           </div>
         </div>
 

@@ -5,8 +5,8 @@
 </template>
 
 <script setup>
-import Home from "./views/Home.vue";
-import { initializeNavigation } from "./style.js";
+import Home from "@/views/Home.vue";
+import { initializeNavigation } from "@/style.js";
 
 initializeNavigation();
 </script>
