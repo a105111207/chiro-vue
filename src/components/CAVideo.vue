@@ -1,11 +1,11 @@
 <script setup>
 import { ref, onMounted, nextTick } from "vue";
 
-// Fix video path imports to use relative paths
-const ctVideos = import.meta.glob("@/assets/video/ct/**/*.mp4", {
+// Fix video path imports to use correct paths for GitHub Pages
+const ctVideos = import.meta.glob("/src/assets/video/ct/**/*.mp4", {
   eager: false,
 });
-const exVideos = import.meta.glob("@/assets/video/ex/**/*.mp4", {
+const exVideos = import.meta.glob("/src/assets/video/ex/**/*.mp4", {
   eager: false,
 });
 
@@ -32,13 +32,14 @@ const playVideo = async (src) => {
   if (!videoPlayer.value) return;
 
   try {
-    const normalizedSrc = src.replace("@/assets", "../assets");
+    // Update path handling for GitHub Pages
+    const normalizedSrc = src.replace("/src/assets", "./assets");
 
     // Check cache first
     if (!videoCache.has(src)) {
       const module = await (src.includes("/ct/")
-        ? ctVideos[normalizedSrc]()
-        : exVideos[normalizedSrc]());
+        ? ctVideos[src]()
+        : exVideos[src]());
       videoCache.set(src, module.default);
     }
 
@@ -48,7 +49,7 @@ const playVideo = async (src) => {
     videoPlayer.value.load();
     await videoPlayer.value.play();
   } catch (err) {
-    console.error("Failed to play video:", err, normalizedSrc);
+    console.error("Failed to play video:", err, src);
   }
 };
 
@@ -92,9 +93,8 @@ onMounted(async () => {
     // Set and load initial video
     if (list1[0]?.videos[0]) {
       const defaultSrc = list1[0].videos[0].src;
-      const normalizedSrc = defaultSrc.replace("@/assets", "../assets");
 
-      const module = await ctVideos[normalizedSrc]();
+      const module = await ctVideos[defaultSrc]();
       videoCache.set(defaultSrc, module.default);
 
       currentVideo.value = module.default;

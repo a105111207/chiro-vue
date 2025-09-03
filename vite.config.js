@@ -6,7 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/chiro/', // 修改為您的 GitHub 倉庫名稱
+  base: '/chiro/', // Replace 'chiro' with your repository name
   plugins: [
     vue(),
     vueDevTools(),
